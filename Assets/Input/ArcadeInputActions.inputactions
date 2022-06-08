@@ -1,0 +1,74 @@
+{
+    "name": "ArcadeInputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "1640a15e-81f3-4f3b-84ba-5819fa734954",
+            "actions": [
+                {
+                    "name": "LeftPallet",
+                    "type": "Button",
+                    "id": "5c1df34f-dd01-4871-a8a8-48c395157a41",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightPallet",
+                    "type": "Button",
+                    "id": "90c57fbe-5fc3-40be-959e-5144ee280630",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spring",
+                    "type": "Button",
+                    "id": "f9e8ca5f-3b46-497a-9b6a-a6d98f62dee8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dbfa7d6e-e504-4d54-9a4d-f19c13e8b731",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Tap,Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftPallet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c53363e-faf9-4c7a-bdbd-f56ec7353bff",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Tap,Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightPallet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07111e6f-41a6-4421-aadf-8b75e56d743f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spring",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
