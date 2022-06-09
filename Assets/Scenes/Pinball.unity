@@ -2488,7 +2488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.28332397, y: -0.64655954, z: 0.2820923, w: 0.64970165}
-  m_LocalPosition: {x: 21.21, y: 20.1, z: -3.8}
+  m_LocalPosition: {x: 21.69, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2815,7 +2815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1272971190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3008,8 +3008,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
-  maxPower: 1000
-  powerSlider: {fileID: 0}
+  minPower: 0
+  maxPower: 2000
+  barFillSpeed: 1000
+  powerSlider: {fileID: 1053625405}
   direction: {x: -0.9936, y: -0.11, z: 0}
   ballRb: {fileID: 0}
 --- !u!65 &1472658984

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,8 +6,12 @@ public class PlungerScript : MonoBehaviour
 {
     private ArcadeInputActions arcadeInputActions;
     private InputAction spring;
-    public float power;
-    public float maxPower = 100f;
+    [SerializeField] float power;
+    [SerializeField] float minPower = 0f;
+    [SerializeField] float maxPower = 1000f;
+
+    [SerializeField] float barFillSpeed;
+
     public Slider powerSlider;
 
     public Vector3 direction;
@@ -21,33 +22,55 @@ public class PlungerScript : MonoBehaviour
     private void Awake()
     {
         arcadeInputActions = new ArcadeInputActions();
+        powerSlider.minValue = minPower;
+        powerSlider.maxValue = maxPower;
     }
 
     private void OnEnable()
     {
         spring = arcadeInputActions.Player.Spring;
         spring.Enable();
-        spring.performed += HitBall;
     }
 
     private void OnDisable()
     {
         spring = arcadeInputActions.Player.Spring;
         spring.Disable();
-        spring.performed += HitBall;
     }
 
     private void Update()
     {
+        if (ballRb)
+        {
+            powerSlider.value = power;
+            if (spring.IsPressed())
+            {
+                if (power <= maxPower)
+                {
+                    power += barFillSpeed * Time.deltaTime;
+                }
+            }
+
+            if (spring.WasReleasedThisFrame())
+            {
+
+                HitBall();
+            }
+        }
+        else
+        {
+            power = minPower;
+        }
 
     }
 
-    private void HitBall(InputAction.CallbackContext obj)
+    private void HitBall()
     {
 
         if (ballRb)
         {
-            ballRb.AddForce(maxPower * direction);
+            ballRb.AddForce(power * direction);
+            power = minPower;
         }
     }
 
@@ -55,6 +78,7 @@ public class PlungerScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<BallScript>())
         {
+            powerSlider.gameObject.SetActive(true);
             ballRb = other.gameObject.GetComponent<Rigidbody>();
         }
     }
@@ -63,6 +87,7 @@ public class PlungerScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<BallScript>())
         {
+            powerSlider.gameObject.SetActive(false);
             ballRb = null;
         }
     }

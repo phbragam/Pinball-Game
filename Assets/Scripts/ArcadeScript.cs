@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,6 +35,8 @@ public class ArcadeScript : MonoBehaviour
     private void OnEnable()
     {
         EnableInputActions();
+        leftPr.enabled = false;
+        rightPr.enabled = false;
     }
 
     private void OnDisable()
