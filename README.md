@@ -2,7 +2,7 @@
 
 ## Description
 
-Prototype of pinball game using new Unity's input system
+Prototype of pinball game using Unity's new input system.
 
 ### Unity Version
 

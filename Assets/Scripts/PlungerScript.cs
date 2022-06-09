@@ -37,6 +37,11 @@ public class PlungerScript : MonoBehaviour
         spring.performed += HitBall;
     }
 
+    private void Update()
+    {
+
+    }
+
     private void HitBall(InputAction.CallbackContext obj)
     {
 

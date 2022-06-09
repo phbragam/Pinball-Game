@@ -15,19 +15,23 @@ public class CanvasScript : MonoBehaviour
     void OnEnable()
     {
         UpdateBallsNumber();
+        UpdateScore();
 
         DeathDetectionScript.gameOver += ActivateRetryButton;
         DeathDetectionScript.ballDead += UpdateBallsNumber;
+        BallScript.hitObstacle += UpdateScore;
     }
 
     void OnDisable()
     {
         DeathDetectionScript.gameOver -= ActivateRetryButton;
         DeathDetectionScript.ballDead -= UpdateBallsNumber;
+        BallScript.hitObstacle -= UpdateScore;
     }
     public void ReloadScene()
     {
         DeathDetectionScript.ballCounter = 3;
+        BallScript.playerScore = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -36,9 +40,9 @@ public class CanvasScript : MonoBehaviour
         retryButton.SetActive(true);
     }
 
-    public void UpdateScore(int score)
+    public void UpdateScore()
     {
-        totalScore += score;
+        scoreText.text = "Score: " + BallScript.playerScore;
     }
 
     public void UpdateBallsNumber()
